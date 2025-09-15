@@ -1,46 +1,53 @@
- import React from "react";
+import React from "react";
 import { useState } from "react";
- import { assets } from "../../assets/assets";
-import Product from "./Product"
+import { assets } from "../../assets/assets";
+import Product from "./Product";
+import PropTypes from "prop-types";
+import Btn from "./Btn";
 const products = [
-  {id:1,
+  {
+    id: 1,
     title: "Black Rotary Phone",
     description: "Description 1",
     price: 33,
     img: assets.phoneOld,
   },
-  { id:2,
+  {
+    id: 2,
     title: "Gray Lantern",
     description: "Description 2",
     price: 44,
     img: assets.grayLantern,
   },
-  { id:3,
+  {
+    id: 3,
     title: "Chair and Vintage Metal Furniture",
     description: "Description 3",
     price: 55,
     img: assets.oldChair,
   },
-  { id:4,
+  {
+    id: 4,
     title: "Old Chevrolet 3100",
     description: "Description 4",
     price: 66,
     img: assets.chevrolet,
   },
-  {  id:5,
+  {
+    id: 5,
     title: "Vintage Record Player",
     description: "Description 3",
     price: 55,
     img: assets.recordPlayer,
   },
-  {  id:6,
+  {
+    id: 6,
     title: "Vintage TV",
     description: "Description 4",
     price: 66,
-    img:  assets.oldTv,
+    img: assets.oldTv,
   },
 ];
-
 
 const buttonData = [
   {
@@ -86,53 +93,65 @@ const buttonData = [
 ];
 
 
-
-
-function Btn ({name ,onClick,img2}) {
-
-
-  return(
- <div className='flex flex-col items-center '> <div   
- 
- style={{    backgroundImage: `url(${img2})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',boxShadow: '3px 3px 7px rgba(0, 0, 0, 0.6)' }} className=" h-[60px] flex items-center justify-center w-[60px] cursor-pointer hover:text-[white]  rounded-full   font-sans font-semibold   text-[white] bg-[#bd3a3a]  "   onClick={onClick}> </div>
-<div className="text-black font-bold mt-[10px]">{name}</div>
-
-</div>
-)
-  }
- function Products({sectionRef}) {
-    const [page, setPage] = useState(1);
+function Products({ sectionRef }) {
+  const [page, setPage] = useState(1);
   const itemsPerPage = 6; // Show 3 products per page
-  const paginatedProducts = products.slice((page - 1) * itemsPerPage, page * itemsPerPage);
-
+  const paginatedProducts = products.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
 
   return (
-      <div ref={sectionRef}>
-      <div className="flex flex-wrap gap-4 px-[3%] mb-6">
-        {buttonData.map((btn, index) => (
-          <Btn key={index} name={btn.name} img2={btn.img2} onClick={btn.onClick} />
-        ))}
-      </div>
+    <div>
+      <div className="">
+        <div className="flex flex-wrap gap-4 px-[3%] mb-6">
+          {buttonData.map((btn, index) => (
+            <Btn ref={sectionRef} 
+              key={index}
+              name={btn.name}
+              img2={btn.img2}
+              onClick={btn.onClick}
+            />
+          ))}
+        </div>
 
-      <div className="flex items-center justify-center flex-wrap gap-4 mb-4">
-        {paginatedProducts.map((product) => (
-          <Product
-            key={product.id}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-            img={product.img}
-          />
-        ))}
+        <div className="flex items-center text-black justify-center flex-wrap gap-4 mb-4">
+          {paginatedProducts.map((product) => (
+            <Product
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              img={product.img}
+            />
+          ))}
+        </div>
       </div>
-      <div className="flex justify-center  text-[20px] gap-8 mb-4">
-        <button className="cursor-pointer" onClick={() => setPage(page - 1)} disabled={page === 1}>Prev</button>
-        <button className="cursor-pointer" onClick={() => setPage(page + 1)} disabled={page * itemsPerPage >= products.length}>Next</button>
+      <div className="flex bg-black justify-center  text-[20px] gap-8 mb-4">
+        <button
+          className="cursor-pointer"
+          onClick={() => setPage(page - 1)}
+          disabled={page === 1}
+        >
+          Prev
+        </button>
+        <button
+          className="cursor-pointer"
+          onClick={() => setPage(page + 1)}
+          disabled={page * itemsPerPage >= products.length}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
-
 }
+
+Products.propTypes = {
+  sectionRef: PropTypes.oneOfType([
+    PropTypes.func, 
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+};
+
 export default React.memo(Products);

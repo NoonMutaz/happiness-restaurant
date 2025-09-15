@@ -11,8 +11,7 @@ const Menu = () => {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content   text-black menu bg-base-100 rounded-box z-1 w-[152px] p-2 shadow-sm"
-      >
+        className="dropdown-content   text-black menu bg-base-100 rounded-box z-61 w-[152px] p-2 shadow-sm">
         <li><a>Cars</a></li>
         <li><a>Furniture</a></li>
         <li><a>Clothing</a></li>

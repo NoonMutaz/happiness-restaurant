@@ -1,47 +1,64 @@
-import { assets } from "../../assets/assets";
-import './Navbar.css';
-import { useNavigate } from 'react-router-dom';
-export default function Navbar() {
-  const navigate = useNavigate();
+ 
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { HashLink } from 'react-router-hash-link';
+import { FaCartShopping } from "react-icons/fa6";
+import Badge from 'react-bootstrap/Badge';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router';
+import { OrderContext } from "../../context/OrderContext";
+import { useContext } from "react";
+
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+
+ 
+ 
+
+
+
+function NavBar ( ) {
+
+  const { orders } = useContext(OrderContext);
+ 
+
 
   return (
-    <div>
-      <div className="navbar fixed z-50   bg-black text-[white]  shadow-sm">
-  <div className="navbar-start ">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
-      </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content text-[black] bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li onClick={() => navigate('/')}><a>Homepage</a></li>
-        <li onClick={() => navigate('/ContactUs')}><a>Contact</a></li>
-        <li onClick={() => navigate('/About')}><a>About</a></li>
-        <div className="h-[2px] mt-1 w-[199px] bg-black"></div>
-        <li className="mt-1"><a>Cars</a></li>
-        <li><a>Furniture</a></li>
-        <li><a>Clothing</a></li>
-        <li><a>Random</a></li>
-        <li><a>Free</a></li>
-        <li><a>Art</a></li>
-        <li><a>Books</a></li>
-      </ul>
-    </div>
-  </div>
-  <div className="navbar-center">
-    <a className="  text-xl">Dusty Bazzar</a>
-  </div>
-  <div className="navbar-end">
 
-        <div className="flex gap-[20px] items-center mr-[32px]">
-          <img src={assets.search} alt="Search Icon" className="relative search" />
-          <div className="basket">
-            <img src={assets.basket} alt="Basket Icon" />
-            <div className="dot"></div>
-          </div>   </div>
-  </div>
-</div>
-    </div>
-  )
+   <Navbar expand="lg" style={{position:'fixed',top:0,zIndex:500,width:'100%'}} className="  bg-dark px-5 gap-3" variant="dark " >
+        <Navbar.Brand href="/" style={{color:'yellow '}}    >كفتريا السعادة</Navbar.Brand>
+     
+        
+   <Navbar.Toggle aria-controls="basic-navbar-nav" />    
+           <Navbar.Collapse  className="d-flex align-items-center "  id="basic-navbar-nav">
+          <Nav  className="ms-auto">
+          <Nav.Link  as={HashLink} smooth to="/#home">الرئيسية</Nav.Link>
+          <Nav.Link  as={HashLink} smooth to="/ContactUs">اتصل بنا</Nav.Link>
+          <Nav.Link as={HashLink} smooth to="/#About">عن المطعم</Nav.Link>
+          <Nav.Link href="#orders">الطلبات</Nav.Link>
+          <Nav.Link  as={HashLink} smooth to="/#products">العروض</Nav.Link>
+          <Nav.Link  as={HashLink} smooth to="#/ProfilePage">الصفحة الشخصية</Nav.Link>
+          {/* <h2 style={{display:'flex',flexWrap:'wrap'}}>{".".repeat(90)}</h2> */}
+            <Nav.Link href="#orders" style={{display:'none ',width:'20rem',}}>الطلبات</Nav.Link>
+        </Nav>
+
+
+       <div className="d-flex align-items-center me-auto">
+         
+        </div>
+      </Navbar.Collapse>
+       <div >
+            <Badge pill bg="danger"   >  {orders.length > 9 ? "+9" : orders.length}</Badge>
+          <Link as={HashLink}   to="/Cart" ><FaCartShopping   style={{ color: 'yellow' }} className="icon" />
+          </Link>  
+          </div>
+    </Navbar>
+
+  );
 }
+NavBar.propTypes = {
+  totalOrders: PropTypes.number.isRequired,
+  handelOrder: PropTypes.func
+};
+
+export default NavBar;
+ 

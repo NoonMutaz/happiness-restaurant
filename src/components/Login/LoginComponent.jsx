@@ -1,47 +1,94 @@
+// src/components/Auth/LoginPage.js
  
-export default function LoginComponent() {
+import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
+
+// Global Styles
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #121212;
+    font-family: 'Cairo', sans-serif;
+    color: #eee;
+    height: 100vh;
+  }
+`;
+
+// Fade In Animation
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+// Card Styling
+const LoginCard = styled(Card)`
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+  animation: ${fadeIn} 1s ease forwards;
+`;
+
+// Styled Button
+const StyledButton = styled(Button)`
+  background-color: #ffc107;
+  border: none;
+  font-weight: bold;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px #ffc107;
+  transition: 0.3s ease;
+
+  &:hover {
+    background-color: #e0a800;
+    box-shadow: 0 0 20px #e0a800;
+    transform: scale(1.05);
+  }
+`;
+
+function LoginPage() {
   return (
-    <div>
-       
-<div className="flex h-[520px]  w-full mt-[-78px] items-center flex-col justify-center px-6 py-12 lg:px-8">
-  <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-   {/* <div className="flex items-center justify-center text-[red] "> DustyBazaar</div> */}
-    <h2 className=" mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
-  </div>
+    <div style={{   display: "flex", alignItems: "center" ,paddingTop:'4rem'}}>
+      <GlobalStyle />
+      <Container>
+        <Row className="justify-content-center">
+          <Col md={6} lg={5}>
+            <LoginCard>
+              <h2 className="text-center mb-4" style={{ color: "#ffc107" }}>
+                تسجيل الدخول
+              </h2>
+              <Form>
+                <Form.Group controlId="formEmail" className="mb-3">
+                  <Form.Label>البريد الإلكتروني</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="أدخل بريدك الإلكتروني"
+                  />
+                </Form.Group>
 
-  <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form className="space-y-6" action="#" method="POST">
-      <div>
-        <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">Email address</label>
-        <div className="mt-2">
-          <input type="email" name="email" id="email" autoComplete="email" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
-        </div>
-      </div>
+                <Form.Group controlId="formPassword" className="mb-3">
+                  <Form.Label>كلمة المرور</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="أدخل كلمة المرور"
+                  />
+                </Form.Group>
 
-      <div>
-        <div className="flex items-center justify-between">
-          <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Password</label>
-          <div className="text-sm">
-            <a href="#" className="font-semibold text-[red] hover:text-indigo-500">Forgot password?</a>
-          </div>
-        </div>
-        <div className="mt-2">
-          <input type="password" name="password" id="password" autoComplete="current-password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[red] sm:text-sm/6" />
-        </div>
-      </div>
+                <StyledButton type="submit">دخول</StyledButton>
+              </Form>
 
-      <div>
-        <button type="submit" className="     rounded-md bg-[red] px-1 py-1 text-sm/6 font-semibold text-white shadow-xs hover:bg-[gray] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-      </div>
-    </form>
-
-    <p className="mt-10 text-center text-sm/6 text-gray-500">
-      Not a member?
-      <a href="#" className="font-semibold text-[red] hover:text-indigo-500">Create acount now</a>
-    </p>
-  </div>
-</div>
-
+              <div className="text-center mt-3">
+                <a href="/register" style={{ color: "#ffc107" }}>
+                  ليس لديك حساب؟ سجل الآن
+                </a>
+              </div>
+            </LoginCard>
+          </Col>
+        </Row>
+      </Container>
     </div>
-  )
+  );
 }
+
+export default LoginPage;

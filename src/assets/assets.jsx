@@ -16,6 +16,7 @@ import grayLantern from './grayLantern.jpeg';
 import phoneOld from './phoneOld.jpeg';
 import yellowCar from './yellowCar.jpeg';
 import clothing from './clothing.jpeg';
+import fan from './fan.gif'
 
 
  
@@ -38,4 +39,5 @@ grayLantern,
 phoneOld,
 yellowCar,
 clothing,
+fan,
 }
