@@ -1,8 +1,20 @@
 import burger from "../assets/burger.png";
 import tomato from "../assets/tomato.png";
-
+import pizza from "../assets/pizzaW.webp";
+import drink from "../assets/drinkW.webp";
+import salad from "../assets/saladW.webp";
+import frise from "../assets/friseW.webp";
+import chocoCake  from "../assets/chocoCakeW.webp";
 export   const initialItems = [
-    {
+
+        {
+      id: 10,
+      name: "شريحة طماطم 🍅",
+      desc: "شريحة طماطم  فاخرة",
+      price: 5,
+      image: tomato,
+      badge: "الأكثر مبيعاً",
+    },    {
       id: 1,
       name: "برجر السعادة 🍔",
       desc: "برجر طازج مع الجبن والخضار.",
@@ -15,35 +27,35 @@ export   const initialItems = [
       name: "بيتزا الفرح 🍕",
       desc: "بيتزا لذيذة بمكونات طازجة.",
       price: 30 ,
-      image: tomato,
+      image: pizza,
     },
     {
       id: 3,
       name: "مشروب منعش 🥤",
       desc: "عصائر طبيعية كوكتيل.",
       price: 12,
-      image: burger,
+      image: drink,
     },
     {
       id: 4,
       name: "سلطة السعادة 🥗",
       desc: "سلطة طازجة مع صلصة خاصة.",
       price: 18,
-       image: burger,
+       image: salad,
     },
     {
       id: 5,
       name: "بطاطس مقلية 🍟",
       desc: "بطاطس مقرمشة مع توابل مميزة.",
       price: 15,
-       image: burger,
+       image: frise,
     },
     {
       id: 6,
       name: "كيك الشوكولاتة 🍰",
       desc: "كيك غني بالشوكولاتة مع كريمة.",
       price: 20,
-      image: burger,
+      image: chocoCake,
     },
 
     {

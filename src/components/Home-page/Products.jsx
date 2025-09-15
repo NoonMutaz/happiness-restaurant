@@ -86,7 +86,7 @@ const ProductTitle = styled(Card.Title)`
 const ProductText = styled(Card.Text)`
   font-size: 1.1rem;
   color: #6d4c00;
-  margin-bottom: 1rem;
+  margin-bottom: .3rem;
   min-height: 60px;
 `;
 
@@ -94,7 +94,7 @@ const Price = styled.p`
   font-size: 1.4rem;
   font-weight: 900;
   color: #bf360c;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 `;
 
 const AddButton = styled(Button)`
@@ -121,6 +121,7 @@ const AddButton = styled(Button)`
 
 const Badge = styled.div`
   position: absolute;
+  z-index:70;
   top: 15px;
   right: 15px;
   background: #ff6f00;
@@ -214,7 +215,7 @@ const { addOrder } = useContext(OrderContext);  // State: كميات المنت�
                 <ProductBody>
                   <ProductTitle>{item.name}</ProductTitle>
                   <ProductText>{item.desc}</ProductText>
-                  <Price> {item.price} ريال   </Price>
+                  <Price style={{marginTop:"-2rem"}}> {item.price} ريال   </Price>
 
                   <QuantityControls>
                     <QtyButton

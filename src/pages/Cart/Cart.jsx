@@ -1,32 +1,9 @@
 import { useContext } from "react";
 import { OrderContext } from "../../context/OrderContext";
-import { Container, Row, Col, Card,Button } from "react-bootstrap";
-import styled, { keyframes } from "styled-components";
- 
- 
-// Entrance animation with stagger
-const fadeInUpStagger = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  } to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import { Button, Image } from "react-bootstrap";
+import styled from "styled-components";
 
-const ProductsSection = styled.section`
-  padding: 5rem 0;
-  /* background: linear-gradient(135deg, #fff8e1, #ffe0b2); */
-  border-radius: 30px;
-  /* box-shadow: 0 10px 30px rgba(255, 183, 77, 0.3); */
-  margin: 3rem auto;
-  max-width: 1100px;
-  color: #4a2c00;
-  
-
-`;
-
+// Keep original Title style
 const Title = styled.h2`
   text-align: center;
   color: #ff6f00;
@@ -34,123 +11,99 @@ const Title = styled.h2`
   font-weight: 900;
   font-size: 2.5rem;
   font-family: 'Baloo 2', cursive;
+  margin-top: 10rem;
 `;
 
-const ProductCard = styled(Card)`
-  /* background: #e6e6e6; */
-  background-color: #f9f9f9;
-  border: none;
-  border-radius: 25px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 8px 5px gray;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  animation: ${fadeInUpStagger} 0.6s ease forwards;
-  animation-delay: ${(props) => props.delay}s;
-  opacity: 0;
-
-  &:hover {
-    transform: translateY(-15px) rotate(1deg) scale(1.05);
-    box-shadow: 0 10px 10px black;
-  }
+// New simple list layout
+const Section = styled.section`
+  padding: 2rem 0;
+  margin: auto;
+  min-height: 100vh;
+  background-color: white;
+  padding: 5rem;
 `;
 
-const ProductImage = styled(Card.Img)`
-  height: 220px;
+const ItemRow = styled.div`
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+`;
+
+const ItemImage = styled(Image)`
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 25px 25px 0 0;
-  transition: transform 0.4s ease;
-
-  ${ProductCard}:hover & {
-    transform: scale(1.1) rotate(-2deg);
-  }
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-right: 1rem;
 `;
 
-const ProductBody = styled(Card.Body)`
-  padding: 1.8rem 1.5rem 2rem;
-
+const ItemInfo = styled.div`
+  flex: 1;
 `;
 
-const ProductTitle = styled(Card.Title)`
-  color: #ff6f00;
-  font-size: 1.6rem;
-  font-weight: 900;
-  margin-bottom: 0.5rem;
-  font-family: 'Baloo 2', cursive;
-  
-`;
-
-const ProductText = styled(Card.Text)`
+const ItemName = styled.h5`
+  margin: 0;
   font-size: 1.1rem;
-  color: #6d4c00;
-  margin-bottom: 1rem;
-  min-height: 60px;
+  font-weight: bold;
+  color: black;
 `;
 
-const Price = styled.p`
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: #bf360c;
-  margin-bottom: 1.5rem;
+const ItemDesc = styled.p`
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: black;
 `;
 
- 
- 
- 
- 
- 
+const ItemPrice = styled.p`
+  font-weight: bold;
+  color: black;
+  margin: 0;
+`;
+
+const DeleteButton = styled(Button)`
+  margin-left: 1rem;
+  height: 35px;
+  padding: 0 12px;
+  font-size: 0.85rem;
+`;
+
 export default function Cart() {
-  const { orders } = useContext(OrderContext);
- 
+  const { orders, clearOrder, removeOrderItem } = useContext(OrderContext);
+
   return (
-    <div>
+    <Section>
+      <Title>🛒 قائمة طلباتي</Title>
 
+      {orders.length === 0 ? (
+        <p className="text-center text-black">السلة فارغة</p>
+      ) : (
+        <>
+          {orders.map((item) => (
+            <ItemRow key={item.uniqueId}>
+              <ItemImage src={item.image} alt={item.name} />
+              <ItemInfo>
+                <ItemName>{item.name}</ItemName>
+                <ItemDesc>{item.desc}</ItemDesc>
+                <ItemPrice>
+                  {item.price} × {item.quantity} = {item.total} ريال
+                </ItemPrice>
+              </ItemInfo>
+              <DeleteButton variant="outline-danger" onClick={() => removeOrderItem(item.uniqueId)}>
+                حذف
+              </DeleteButton>
+            </ItemRow>
+          ))}
 
-
-
- <ProductsSection id="Cart">
-      <Container>
-        <Title id='order-section'>قائمة طلباتي 😋</Title>
-<Row className="g-4 text-amber-50">
-  {orders.length === 0 ? (
-    <Title>
-      <p>🛒 السلة فارغة</p>
-    </Title>
-  ) : (
-    <>
-      {orders.map((item, index) => (
-        <Col md={4} key={item.id}>
-          <ProductCard delay={index * 0.3}>
-            <ProductImage variant="top" src={item.image} alt={item.name} />
-            <ProductBody>
-              <ProductTitle>{item.name}</ProductTitle>
-              <ProductText className='text-black'>{item.desc}</ProductText>
-              <Price>{item.price} × {item.quantity} 
-                = {item.total} ريال
-              </Price>
-            </ProductBody>
-          </ProductCard>
-        </Col>
-      ))}
-      <Col xs={12}>
-        <Title id='order-section'>  
-          <Button className="btn bg-amber-500" variant="danger">مسح السلة</Button> 
-        </Title>
-      </Col>
-    </>
-  )}
-</Row>
-      </Container>
-    </ProductsSection>
-
-  
-
-
-
- 
-    </div>
+          <div className="text-center mt-4 text-amber-50">
+            <Button style={{ color: "white" }} onClick={clearOrder}>
+              مسح السلة
+            </Button>
+          </div>
+        </>
+      )}
+    </Section>
   );
 }

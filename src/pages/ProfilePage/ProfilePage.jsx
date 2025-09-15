@@ -105,7 +105,7 @@ function ProfilePage() {
 
   return (
     <Wrapper>
-      <Container>
+      <Container id='ProfilePage'>
         <Row className="justify-content-center mb-5">
           <Col md={6}>
             <ProfileCard>

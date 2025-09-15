@@ -29,28 +29,26 @@ function NavBar ( ) {
      
         
    <Navbar.Toggle aria-controls="basic-navbar-nav" />    
-           <Navbar.Collapse  className="d-flex align-items-center "  id="basic-navbar-nav">
+           <Navbar.Collapse  className="  "  id="basic-navbar-nav">
           <Nav  className="ms-auto">
           <Nav.Link  as={HashLink} smooth to="/#home">الرئيسية</Nav.Link>
           <Nav.Link  as={HashLink} smooth to="/ContactUs">اتصل بنا</Nav.Link>
           <Nav.Link as={HashLink} smooth to="/#About">عن المطعم</Nav.Link>
           <Nav.Link href="#orders">الطلبات</Nav.Link>
           <Nav.Link  as={HashLink} smooth to="/#products">العروض</Nav.Link>
-          <Nav.Link  as={HashLink} smooth to="#/ProfilePage">الصفحة الشخصية</Nav.Link>
+          <Nav.Link  as={HashLink} smooth to="/ProfilePage">الصفحة الشخصية</Nav.Link>
           {/* <h2 style={{display:'flex',flexWrap:'wrap'}}>{".".repeat(90)}</h2> */}
             <Nav.Link href="#orders" style={{display:'none ',width:'20rem',}}>الطلبات</Nav.Link>
         </Nav>
 
-
-       <div className="d-flex align-items-center me-auto">
-         
-        </div>
-      </Navbar.Collapse>
-       <div >
+  <div >
             <Badge pill bg="danger"   >  {orders.length > 9 ? "+9" : orders.length}</Badge>
-          <Link as={HashLink}   to="/Cart" ><FaCartShopping   style={{ color: 'yellow' }} className="icon" />
-          </Link>  
+          <Nav.Link as={HashLink}   to="/Cart" ><FaCartShopping   style={{ color: 'yellow' }} className="icon" />
+          </Nav.Link>  
           </div>
+        
+      </Navbar.Collapse>
+     
     </Navbar>
 
   );
