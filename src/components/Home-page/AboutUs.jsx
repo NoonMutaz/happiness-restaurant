@@ -2,7 +2,7 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import styled, { createGlobalStyle } from "styled-components";
 import burger from '../../assets/burger.png';
-import smoke from '../../assets/smokeBG.jpg';
+// import smoke from '../../assets/smokeBG.jpg';
 
 // Global font and base styles
 const GlobalStyle = createGlobalStyle`
@@ -32,32 +32,7 @@ const Section = styled.section`
   `}
 `;
 
-const Hero = styled.div`
-  position: relative;
-  background: url("${smoke}") center/cover no-repeat;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffcc00;
-  font-weight: 900;
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 0;
-  }
-
-  h1 {
-    position: relative;
-    z-index: 1;
-  }
-`;
 
 const StyledCard = styled(Card)`
   border-radius: 20px;

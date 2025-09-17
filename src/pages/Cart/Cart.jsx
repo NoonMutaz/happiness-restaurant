@@ -92,7 +92,7 @@ export default function Cart() {
                 </ItemPrice>
               </ItemInfo>
               <DeleteButton variant="outline-danger" onClick={() => removeOrderItem(item.uniqueId)}>
-                حذف
+                حذف  
               </DeleteButton>
             </ItemRow>
           ))}

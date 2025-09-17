@@ -114,8 +114,8 @@ export default function HeroComponent() {
                   <Bubble
                     key={i}
                     size={20 + Math.random() * 30}
-                    left={Math.random() * 100}
-                    duration={5 + Math.random() * 5}
+                    left={Math.random() * 30}
+                    duration={5 + Math.random() * 25}
                     delay={Math.random() * 5}
                   />
                 ))}

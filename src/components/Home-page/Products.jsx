@@ -50,10 +50,10 @@ const ProductCard = styled(Card)`
   animation-delay: ${(props) => props.delay}s;
   opacity: 0;
 
-  &:hover {
+  /* &:hover {
     transform: translateY(-15px) rotate(1deg) scale(1.05);
     box-shadow: 0 10px 10px black;
-  }
+  } */
 `;
 
 const ProductImage = styled(Card.Img)`
@@ -183,8 +183,7 @@ const { addOrder } = useContext(OrderContext);  // State: كميات المنت�
     initialItems.reduce((acc, item) => {
       acc[item.id] = 0;
       return acc;
-    }, {})
-  );
+    }, {}));
 
   // زيادة الكمية
   const increment = (id) => {

@@ -5,6 +5,7 @@ import drink from "../assets/drinkW.webp";
 import salad from "../assets/saladW.webp";
 import frise from "../assets/friseW.webp";
 import chocoCake  from "../assets/chocoCakeW.webp";
+import fruitSalad  from "../assets/fruitSalad.webp";
 export   const initialItems = [
 
         {
@@ -70,14 +71,14 @@ export   const initialItems = [
       name: "مشروب الطاقة 🥤",
       desc: "مشروب منعش مع مكونات طبيعية.",
       price: 15,
-      image: burger,
+      image: drink,
     },
     {
       id: 9,
       name: "سلطة الفواكه 🍉",
       desc: "سلطة منعشة مع مزيج من الفواكه.",
       price: 20,
-      image: burger,
+      image: fruitSalad,
     }
 
   ];

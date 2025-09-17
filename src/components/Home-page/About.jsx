@@ -1,6 +1,7 @@
 import {  Row, Col,  } from "react-bootstrap";
 import styled, {  keyframes } from "styled-components";
 import tomato from "../../assets/tomato.png";
+// import pizza from '../../assets/pizzaW.webp'
 
 
 // About image with hover zoom
@@ -51,8 +52,8 @@ export default function About() {
   <p>
     نسعى لأن نكون الوجهة المفضلة لعشاق المأكولات السريعة في منطقتنا، من خلال تقديم تجربة
     استثنائية في كل زيارة، تجمع بين الجودة والطعم والخدمة الودية.
-  </p>
-                      </AboutText>
+  </p>    
+  </AboutText>
                     </Col>
                   </Row>
     </div>

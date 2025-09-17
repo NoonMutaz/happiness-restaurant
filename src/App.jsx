@@ -1,6 +1,6 @@
 import { Routes,Route } from "react-router-dom"
 // import Navbar from "./components/Navbar/Navbar"
-import Home from "./pages/Home/home"
+import Home from "./pages/Home/Home"
 import Cart from "./pages/Cart/Cart"
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
 import ContactUs from "./pages/ContactUs/Contact"
@@ -28,10 +28,6 @@ const Container = styled.div`
 
  const [totalOrders, setTotalOrders] = useState(0);
   const [loading, setLoading] = useState(true);
-//  const handelOrders=()=>{
-//   setTotalOrders((prev)=>prev+1 );
-//  }
-  // Simulate page load or data fetching
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // after 2 seconds, hide spinner
@@ -42,7 +38,8 @@ const Container = styled.div`
 
   if (loading) {
     return (
-      <div className="my-scroll "
+      <div 
+      className="my-scroll "
         style={{
           display: "flex",
           justifyContent: "center",
@@ -72,8 +69,7 @@ const Container = styled.div`
   <Route path="/login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
     <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
-  <Route path="*" element={<NotFound />} ></Route>
- 
+  <Route path="*" element={<NotFound />} ></Route> 
 </Routes>
   
      </Container>

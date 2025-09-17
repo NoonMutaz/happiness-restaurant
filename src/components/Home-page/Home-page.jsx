@@ -6,7 +6,7 @@ import HeroComponent from "./Hero";
 import About from './About';
 import ContactUs from "./ContactUs";
 import AboutUs from "./AboutUs";
-import { OrderProvider } from '../../context/OrderContext';
+// import { OrderProvider } from '../../context/OrderContext';
  
 // Global styles
 const GlobalStyle = createGlobalStyle`
@@ -43,7 +43,7 @@ const Section = styled.section`
  
 
 
-export default function HomePage({handelOrders}) {
+export default function HomePage( ) {
  
   return (
     <div style={{backgroundColor:'black'}}>
@@ -61,7 +61,7 @@ export default function HomePage({handelOrders}) {
         </Section> 
         <div id="products" >
   
-       <Products   handelOrders={handelOrders} />  
+       <Products    />  
    
   
         </div>

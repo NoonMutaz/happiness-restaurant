@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 // Create the context (no need to pass children)
 export const OrderContext = createContext(); 
@@ -9,9 +9,8 @@ export const OrderProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
 
   const addOrder = (order) => {
-    setOrders((prev) => [...prev, {...order , uniqueId: uuidv4(),
-
-    },]);
+    setOrders((prev) => [...prev,
+       {...order , uniqueId: uuidv4(), },]);
   };
 const clearOrder=()=>{
    setOrders(( ) => [ ]);
