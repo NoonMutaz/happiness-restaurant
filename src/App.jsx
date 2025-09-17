@@ -1,6 +1,6 @@
 import { Routes,Route } from "react-router-dom"
 // import Navbar from "./components/Navbar/Navbar"
-import Home from "./pages/Home/Home"
+import Home from "./pages/Home/Homepage"
 import Cart from "./pages/Cart/Cart"
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
 import ContactUs from "./pages/ContactUs/Contact"
@@ -61,7 +61,7 @@ const Container = styled.div`
   <Container className=" " >
    <Navbar totalOrders={totalOrders}   />
 <Routes> 
-  <Route path="/" element={<Home />} ></Route>
+  <Route path="/" element={<Home/>} ></Route>
   <Route path="/Cart" element={<Cart/>} ></Route>
   <Route path="/PlaceOrder" element={<PlaceOrder/>} ></Route>
   <Route path="/ContactUs" element={<ContactUs/>} ></Route>
