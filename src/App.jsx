@@ -18,9 +18,7 @@ import Navbar from "./components/Navbar/Navbar"
 const Container = styled.div`
   background-color: #000000;
  height: 100vh;
-  /* margin: 0 auto;
-  padding: 20px;
-  height: 100%; */
+
 `;
 
  
@@ -68,8 +66,8 @@ const Container = styled.div`
   <Route path="/About" element={<About/>} ></Route>
   <Route path="/Login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
-    <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
-  <Route path="*" element={<NotFound/>} ></Route> 
+  <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
+  <Route path="*" element={<NotFound/>} ></Route>
 </Routes>
   
      </Container>
