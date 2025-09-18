@@ -5,7 +5,7 @@ import Cart from "./pages/Cart/Cart"
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
 import ContactUs from "./pages/ContactUs/Contact"
 import About from "./pages/About/About"
-import NotFound from "./pages/Not-found"
+import NotFound from "./pages/NotFound"
 import Login  from  "./pages/Login/Login"
 import ProfilePage from "./pages/ProfilePage/ProfilePage"
 import styled from 'styled-components';
