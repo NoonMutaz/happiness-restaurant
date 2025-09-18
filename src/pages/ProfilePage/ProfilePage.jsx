@@ -1,6 +1,7 @@
  
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import styled from "styled-components";
+import {Link} from 'react-router';
 
 // Wrapper
 const Wrapper = styled.div`
@@ -58,10 +59,11 @@ const StyledButton = styled(Button)`
   padding: 0.6rem 1.5rem;
   margin: 0.3rem;
   transition: all 0.3s ease;
+  text-decoration:none;
 
   &:hover {
     background-color: #e0a800;
-    transform: scale(1.05);
+    transform: scale(1.0);
     box-shadow: 0 0 15px #ffc107;
   }
 `;
@@ -113,7 +115,8 @@ function ProfilePage() {
               <UserName>{user.name}</UserName>
               <UserEmail>{user.email}</UserEmail>
               <StyledButton>تعديل الملف الشخصي</StyledButton>
-              <StyledButton variant="dark" href='/Login'>تسجيل الخروج</StyledButton>
+          
+              <StyledButton as={Link} to="/Login" variant="dark" >تسجيل الخروج</StyledButton>
             </ProfileCard>
           </Col>
         </Row>

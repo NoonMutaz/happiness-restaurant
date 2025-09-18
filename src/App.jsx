@@ -66,7 +66,7 @@ const Container = styled.div`
   <Route path="/PlaceOrder" element={<PlaceOrder/>} ></Route>
   <Route path="/ContactUs" element={<ContactUs/>} ></Route>
   <Route path="/About" element={<About/>} ></Route>
-  <Route path="/login" element={<Login/>} ></Route>
+  <Route path="/Login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
     <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
   <Route path="*" element={<NotFound />} ></Route> 
