@@ -5,7 +5,7 @@ import Cart from "./pages/Cart/Cart"
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder"
 import ContactUs from "./pages/ContactUs/Contact"
 import About from "./pages/About/About"
-import NotFound from "./pages/Not-found/Not-found"
+import NotFound from "./pages/Not-found"
 import Login  from  "./pages/Login/Login"
 import ProfilePage from "./pages/ProfilePage/ProfilePage"
 import styled from 'styled-components';
@@ -69,7 +69,7 @@ const Container = styled.div`
   <Route path="/Login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
     <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
-  <Route path="*" element={<NotFound />} ></Route> 
+  <Route path="*" element={<NotFound/>} ></Route> 
 </Routes>
   
      </Container>

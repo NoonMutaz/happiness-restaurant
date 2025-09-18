@@ -1,4 +1,4 @@
- 
+import {Link} from 'react-router';
 import { Container, Button } from "react-bootstrap";
 import styled, { keyframes } from "styled-components";
 
@@ -67,7 +67,7 @@ function NotFound() {
           عذراً! الصفحة التي تبحث عنها غير متوفرة.<br />
           ربما تفضل العودة إلى <strong>كفتريا السعادة</strong> وتجربة أطباقنا؟
         </Message>
-        <StyledButton href="/">العودة للرئيسية</StyledButton>
+        <StyledButton as={Link} to="/">العودة للرئيسية</StyledButton>
       </Container>
     </Wrapper>
   );
