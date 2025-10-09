@@ -245,8 +245,8 @@ const { addOrder } = useContext(OrderContext);  // State: كميات المنت�
                                             desc:item.desc,
                                           };
                                           addOrder(order);
-                                        //  alert(`تم إضافة ${quantities[item.id]} من ${item.name} إلى السلة!`);
-                                        }}>
+//  alert(`تم إضافة ${quantities[item.id]} من ${item.name} إلى السلة!`);
+}}>
 أضف للسلة 🛒
                   </AddButton>
                 </ProductBody>

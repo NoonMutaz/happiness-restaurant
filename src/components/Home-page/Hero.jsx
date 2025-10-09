@@ -107,7 +107,7 @@ export default function HeroComponent() {
     <div>
        <Hero id='home'>
                 <h1>مرحبا بكم في كفتريا السعادة! 🎉🍔</h1>
-                <StyledButton style={{ backgroundColor: '#ffc107' }} href="#order-section">اطلب الآن 🍟</StyledButton>
+                <StyledButton style={{ backgroundColor: '#ffc107' }} href="#order-section">اطلب الآن  </StyledButton>
       
                 {/* Floating bubbles */}
                 {[...Array(8)].map((_, i) => (

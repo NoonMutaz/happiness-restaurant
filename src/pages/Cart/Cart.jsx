@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { OrderContext } from "../../context/OrderContext";
 import { Button, Image } from "react-bootstrap";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // Keep original Title style
 const Title = styled.h2`
@@ -97,10 +98,15 @@ export default function Cart() {
             </ItemRow>
           ))}
 
-          <div className="text-center mt-4 text-amber-50">
-            <Button style={{ color: "white" }} onClick={clearOrder}>
+          <div className="text-center mt-4 text-amber-50 flex gap-2">
+            <Button style={{ color: "white" ,backgroundColor:'red'}} onClick={clearOrder}>
               مسح السلة
             </Button>
+      <Link to="/Checkout" style={{ textDecoration: 'none', marginLeft: '1rem' }} >
+      
+                   <Button style={{ color: "white" }} >
+              متابعة الطلب 
+            </Button>  </Link>   
           </div>
         </>
       )}

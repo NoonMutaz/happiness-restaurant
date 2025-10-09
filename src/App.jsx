@@ -14,6 +14,7 @@ import burger from './assets/burger.gif';
 import Register from "./pages/Register/Register"  
   import {OrderProvider} from "./context/OrderContext";
 import Navbar from "./components/Navbar/Navbar" 
+import Checkout from "./pages/Checkout/Checkout"
  const App = () => {
 const Container = styled.div`
   background-color: #000000;
@@ -67,6 +68,7 @@ const Container = styled.div`
   <Route path="/Login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
   <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
+    <Route path="/Checkout" element={<Checkout/>} ></Route>
   <Route path="*" element={<NotFound/>} ></Route>
 </Routes>
   
