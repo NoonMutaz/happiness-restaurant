@@ -5,14 +5,25 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
-  padding: 6rem 12rem;
+  padding: 4rem 2rem;
   background-color: #fff;
   min-height: 100vh;
-  /* width: 500px; */
-  margin: auto;
- 
-  
+  max-width: 60rem;
+  margin: auto; 
+
+  @media (min-width: 768px) {
+    padding: 6rem 4rem;
+  }
+
+  @media (min-width: 992px) {
+    padding: 6rem 6rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 6rem 12rem;
+  }
 `;
+ 
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
@@ -56,8 +67,9 @@ export default function Checkout() {
     navigate(-1); // ✅ العودة للصفحة السابقة
   };
   return (
-    <Container>
-      <Title>  إكمال الشراء</Title>
+    <div style={{ backgroundColor: "black" }}>
+      <Container>
+        <Title> إكمال الشراء</Title>
 
       {orders.map((item) => (
         <OrderItem key={item.uniqueId}>
@@ -116,6 +128,6 @@ export default function Checkout() {
           </Button>
         </ButtonGroup>
       </Form>
-    </Container>
+    </Container>    </div>
   );
 }

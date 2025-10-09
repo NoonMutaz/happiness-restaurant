@@ -84,19 +84,6 @@ const Paragraph = styled.p`
   color: ${(props) => props.color || "#eee"};
 `;
 
-
-
-// const ContactInfo = styled.div`
-//   font-size: 1.2rem;
-//   margin-bottom: 1rem;
-//   color: #ffc107;
-//   font-weight: 600;
-//   display: flex;
-//   justify-content: center;
-//   gap: 1rem;
-//   flex-wrap: wrap;
-// `;
-
  
 
 function AboutUs() {
@@ -104,12 +91,7 @@ function AboutUs() {
     <>
       <GlobalStyle />
       <div dir="rtl" id='About'>
-        {/* Hero Section */}
-        {/* <Hero>
-          <h1>عن كفتريا السعادة</h1>
-        </Hero> */}
-
-        {/* Who We Are Section */}
+ 
         <Section bg="#121212" color="#eee">
           <Container>
             <Row className="align-items-center">

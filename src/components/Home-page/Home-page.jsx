@@ -3,8 +3,8 @@ import { Container,    } from "react-bootstrap";
 import styled, { createGlobalStyle,  } from "styled-components";
 import Products from "./Products";
 import HeroComponent from "./Hero";
-import About from './About';
-import ContactUs from "./ContactUs";
+import Vision from './Vision';
+import Footer from "../Footer";
 import AboutUs from "./AboutUs";
 // import { OrderProvider } from '../../context/OrderContext';
  
@@ -55,7 +55,7 @@ export default function HomePage( ) {
         {/* About Section */}
         <Section id="about-section">
           <Container>
-           <About/>
+           <Vision/>
           
           </Container>
         </Section> 
@@ -68,7 +68,7 @@ export default function HomePage( ) {
         {/* Contact Section */}
         <Section bg="#121212" color="#eee">
           <Container>
-          <ContactUs/>
+          <Footer/>
           </Container>
         </Section>
       </div>

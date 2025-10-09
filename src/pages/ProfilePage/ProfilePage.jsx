@@ -130,7 +130,7 @@ const navigate = useNavigate();
               <UserName>{
                   user.name?.trim() ? user.name : 'حساب ضيف'}</UserName>
               <UserEmail>{    user.name?.trim() ? user.email : 'guest@example.com'}</UserEmail>
-<div>
+ 
   
         <StyledButton disabled={!user.name?.trim() } onClick={() => navigate("/edit-profile")} >تعديل الملف الشخصي</StyledButton>
      
@@ -142,7 +142,7 @@ const navigate = useNavigate();
               }
 
               </StyledButton>
-</div>
+ 
  
 
          {/* <UserName>{

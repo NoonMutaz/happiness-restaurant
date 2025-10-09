@@ -39,7 +39,7 @@ import tomato from "../../assets/tomato.png";
    }
  `;
  
-export default function About() {
+export default function Vision() {
   return (
     <div>
        <Row className="align-items-center">
