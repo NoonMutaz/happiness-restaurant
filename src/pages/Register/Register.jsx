@@ -1,8 +1,8 @@
 // src/components/Auth/RegisterPage.js
  
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
-import styled, { createGlobalStyle, keyframes } from "styled-components";
-
+import styled, {   keyframes } from "styled-components";
+import { useState } from "react";
 // Global Styles
 // const GlobalStyle = createGlobalStyle`
 //   body {
@@ -48,6 +48,8 @@ const StyledButton = styled(Button)`
 `;
 
 function RegisterPage() {
+    const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div style={{ paddingTop: "5rem", display: "flex", alignItems: "center", backgroundColor: "#121212",paddingBottom:"4rem", minHeight: "100vh" }}>
       <Container>
@@ -60,22 +62,22 @@ function RegisterPage() {
               <Form>
                 <Form.Group controlId="formName" className="mb-3">
                   <Form.Label>الاسم الكامل</Form.Label>
-                  <Form.Control type="text" placeholder="أدخل اسمك الكامل" />
+                  <Form.Control type="text" placeholder="أدخل اسمك الكامل" required />
                 </Form.Group>
 
                 <Form.Group controlId="formEmail" className="mb-3">
                   <Form.Label>البريد الإلكتروني</Form.Label>
-                  <Form.Control type="email" placeholder="أدخل بريدك الإلكتروني" />
+                  <Form.Control type="email" placeholder="أدخل بريدك الإلكتروني" required />
                 </Form.Group>
 
                 <Form.Group controlId="formPhone" className="mb-3">
                   <Form.Label>رقم الهاتف</Form.Label>
-                  <Form.Control type="text" placeholder="أدخل رقم هاتفك" />
+                  <Form.Control type="text" placeholder="أدخل رقم هاتفك (اختياري)" />
                 </Form.Group>
 
                 <Form.Group controlId="formPassword" className="mb-3">
                   <Form.Label>كلمة المرور</Form.Label>
-                  <Form.Control type="password" placeholder="أدخل كلمة المرور" />
+                  <Form.Control type={showPassword ? "text" : "password"} style={{ color: "black" }} placeholder="أدخل كلمة المرور"  />
                 </Form.Group>
 
                 <Form.Group controlId="formConfirmPassword" className="mb-4">

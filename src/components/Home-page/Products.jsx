@@ -110,6 +110,8 @@ const AddButton = styled(Button)`
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  margin: 0 auto;
+  margin-top: 1rem;
 
   &:hover,
   &:focus {

@@ -12,8 +12,10 @@ import styled from 'styled-components';
 import { useState, useEffect } from "react";
 import burger from './assets/burger.gif';
 import Register from "./pages/Register/Register"  
-  import {OrderProvider} from "./context/OrderContext";
+import {OrderProvider} from "./context/OrderContext";
+import {UserProvider} from "./context/UserContext";
 import Navbar from "./components/Navbar/Navbar" 
+import EditProfile from "./pages/Editprofile/edit-profile"
 import Checkout from "./pages/Checkout/Checkout"
  const App = () => {
 const Container = styled.div`
@@ -55,7 +57,7 @@ const Container = styled.div`
  }
 
    return (
-     
+  <UserProvider>
  <OrderProvider>
   <Container className=" " >
    <Navbar totalOrders={totalOrders}   />
@@ -68,12 +70,13 @@ const Container = styled.div`
   <Route path="/Login" element={<Login/>} ></Route>
   <Route path="/register" element={<Register/>} ></Route>
   <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
+  <Route path="/edit-profile" element={<EditProfile/>} ></Route>
     <Route path="/Checkout" element={<Checkout/>} ></Route>
   <Route path="*" element={<NotFound/>} ></Route>
 </Routes>
   
      </Container>
-     </OrderProvider> 
+     </OrderProvider> </UserProvider>    
    )
  }
  
