@@ -60,11 +60,11 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("تم تأكيد الطلب بنجاح ✅");
-    // ممكن ترسل الطلب للسيرفر أو تخزن البيانات هنا
+    alert("تم تأكيد الطلب بنجاح  ");
+    
   };
   const goBack = () => {
-    navigate(-1); // ✅ العودة للصفحة السابقة
+    navigate(-1); //       
   };
   return (
     <div style={{ backgroundColor: "black" }}>

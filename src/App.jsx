@@ -17,6 +17,8 @@ import {UserProvider} from "./context/UserContext";
 import Navbar from "./components/Navbar/Navbar" 
 import EditProfile from "./pages/Editprofile/edit-profile"
 import Checkout from "./pages/Checkout/Checkout"
+import Routers from "./routers/Routers"
+import Layout from "./components/layout/Layout"
  const App = () => {
 const Container = styled.div`
   background-color: #000000;
@@ -61,22 +63,10 @@ const Container = styled.div`
  <OrderProvider>
   <Container className=" " >
    <Navbar totalOrders={totalOrders}   />
-<Routes> 
-  <Route path="/" element={<Home/>} ></Route>
-  <Route path="/Cart" element={<Cart/>} ></Route>
-  <Route path="/PlaceOrder" element={<PlaceOrder/>} ></Route>
-  <Route path="/ContactUs" element={<ContactUs/>} ></Route>
-  <Route path="/About" element={<About/>} ></Route>
-  <Route path="/Login" element={<Login/>} ></Route>
-  <Route path="/register" element={<Register/>} ></Route>
-  <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
-  <Route path="/edit-profile" element={<EditProfile/>} ></Route>
-    <Route path="/Checkout" element={<Checkout/>} ></Route>
-  <Route path="*" element={<NotFound/>} ></Route>
-</Routes>
-  
+      <Layout/>
      </Container>
-     </OrderProvider> </UserProvider>    
+     </OrderProvider> 
+     </UserProvider>    
    )
  }
  

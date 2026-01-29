@@ -5,8 +5,15 @@ import styled from "styled-components";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+ useClerk ,
  
+} from "@clerk/clerk-react";
+
 // Wrapper
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -73,11 +80,27 @@ const StyledButton = styled(Button)`
 
   &:hover {
     background-color: #e0a800;
-    transform: scale(1.0);
+    transform: scale(1);
     box-shadow: 0 0 15px #ffc107;
   }
 `;
 
+const LogoutButton = styled(Button)`
+  background-color: #ff2f2f;
+  border: none;
+  color: #121212;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  margin: 0.3rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:disabled {
+    background-color: #ffe240;
+    color: black;
+    cursor: not-allowed;
+  }`;
 // Section Title
 const SectionTitle = styled.h3`
   color: #ffc107;
@@ -106,16 +129,15 @@ const OrderCard = styled.div`
 
 function ProfilePage() {
   const { orders } = useContext(OrderContext);
-   const { user,setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   // const [userdata,setUserdata] = useState({
   //   name:  user.name || "user ",
   //   email: user.email || "user@example.com",
   // });
 
- 
-const navigate = useNavigate();
-
+  const navigate = useNavigate();
+   const { openUserProfile, signOut } = useClerk();
   return (
     <Wrapper>
       <Container id="ProfilePage">
@@ -123,34 +145,43 @@ const navigate = useNavigate();
           <Col md={6}>
             <ProfileCard>
               <Avatar>
-                {
-                  user.name?.trim() ? user.name?.trim().charAt(0).toUpperCase() : 'ض'
-                }
-                </Avatar>
-              <UserName>{
-                  user.name?.trim() ? user.name : 'حساب ضيف'}</UserName>
-              <UserEmail>{    user.name?.trim() ? user.email : 'guest@example.com'}</UserEmail>
+                {user.name?.trim()
+                  ? user.name?.trim().charAt(0).toUpperCase()
+                  : "ض"}
+              </Avatar>
+              <UserName>{user.name?.trim() ? user.name : "حساب ضيف"}</UserName>
+              <UserEmail>
+                {user.name?.trim() ? user.email : "guest@example.com"}
+              </UserEmail>
+
+            
+
+              <SignedOut>
+                <SignInButton >
+                  <StyledButton >
+                    {user.name?.trim()
+                      ? "تسجيل الخروج"
+                      : " سجل دخولك  انت غير مسجل"}
+                  </StyledButton>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
  
-  
-        <StyledButton disabled={!user.name?.trim() } onClick={() => navigate("/edit-profile")} >تعديل الملف الشخصي</StyledButton>
-     
-      
-
-        <StyledButton as={Link} to="/login">
-              {
-                user.name?.trim() ? 'تسجيل الخروج' : ' سجل دخولك  انت غير مسجل'
-              }
-
-              </StyledButton>
+    
+      <StyledButton
+        onClick={() => openUserProfile()}
+        
+      >
+        حسابي
+      </StyledButton>
+        <LogoutButton
+            onClick={() => signOut()}
+            className="px-4 py-2 rounded-xl bg-gray-200"
+          >
+            تسجيل الخروج
+          </LogoutButton>
+              </SignedIn>
  
- 
-
-         {/* <UserName>{
-                  user.name?.trim() ?  " "  :      
-                      <StyledButton as={Link} to="/login">
-انت غير مسجل سجل دخولك              </StyledButton>}</UserName>  */}
-
-           
             </ProfileCard>
           </Col>
         </Row>
@@ -164,7 +195,9 @@ const navigate = useNavigate();
             ) : (
               orders.map((order) => (
                 <OrderCard key={order.uniqueId}>
-                  <span>{order.name} × {order.quantity}</span>
+                  <span>
+                    {order.name} × {order.quantity}
+                  </span>
                   <strong>{order.total} ريال</strong>
                 </OrderCard>
               ))
