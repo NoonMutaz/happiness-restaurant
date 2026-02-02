@@ -180,6 +180,8 @@ function Products( ) {
   
 // }
 // 
+const [search, setSearch] = useState("");
+
 const { addOrder } = useContext(OrderContext);  // State: كميات المنتجات حسب id
   const [quantities, setQuantities] = useState(
     initialItems.reduce((acc, item) => {
@@ -194,21 +196,34 @@ const { addOrder } = useContext(OrderContext);  // State: كميات المنت�
       [id]: prev[id] + 1,
     }));
   };
-
-  // نقصان الكمية (لا تقل عن 0)
+ 
   const decrement = (id) => {
     setQuantities((prev) => ({
       ...prev,
       [id]: prev[id] > 0 ? prev[id] - 1 : 0,
     }));
   };
+const filteredItems = initialItems.filter(item =>
+  item.name.toLowerCase().includes(search.toLowerCase())
+);
 
   return (
     <ProductsSection id="products">
       <Container>
-        <Title id='order-section'>قائمة منتجاتنا 😋</Title>
+        <Title id='order-section'>قائمة منتجاتنا </Title>
+        <Row className="mb-4">
+  <Col md={{ span: 6, offset: 3 }}>
+    <input
+      type="text"
+      className="form-control form-control-lg"
+      placeholder="ابحث عن منتج..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+  </Col>
+</Row>
         <Row className="g-4">
-          {initialItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <Col md={4} key={item.id}>
               <ProductCard delay={index * 0.2}>
                 {item.badge && <Badge>{item.badge}</Badge>}
