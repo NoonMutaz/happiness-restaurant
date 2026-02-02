@@ -87,9 +87,9 @@ export default function RestaurantDetails() {
                 </Badge>
               </div>
 
-              <p className="fw-semibold">
+              {/* <p className="fw-semibold">
                 💰 {restaurant.costForTwo}
-              </p>
+              </p> */}
 
               {restaurant.aggregatedDiscountInfoV3?.header && (
                 <div className="alert alert-warning mt-3">

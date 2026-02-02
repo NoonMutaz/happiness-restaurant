@@ -106,7 +106,7 @@ export default function HeroComponent() {
   return (
     <div>
        <Hero id='home'>
-                <h1>مرحبا بكم في كفتريا السعادة! 🎉🍔</h1>
+                <h1>مرحبا بكم في كفتريا السعادة! </h1>
                 <StyledButton style={{ backgroundColor: '#ffc107' }} href="#order-section">اطلب الآن  </StyledButton>
       
                 {/* Floating bubbles */}

@@ -99,7 +99,7 @@ export default function MoreRest() {
   return (
 <div
    
-  className="text-decoration-none"
+  className="text-decoration-none bg-black w-full"
 >
       <ProductsSection className="bg-black h-full w-screen">
         <Container>
