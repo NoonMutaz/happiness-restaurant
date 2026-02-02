@@ -77,7 +77,8 @@ export default function MoreRest() {
 
         const dataWrapped = await res.json();
         const json = JSON.parse(dataWrapped.contents);
-        const list =json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        const list =json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+?.restaurants || [];
 
         setRestaurants(list);
       } catch (err) {
@@ -113,22 +114,35 @@ export default function MoreRest() {
             </Col>
           </Row>
 
-          {/* Loading Skeleton */}
-          {loading && (
-            <Row className="g-4">
-              {[...Array(6)].map((_, i) => (
-                <Col md={4} key={i}>
-                  <div
-                    style={{
-                      height: "250px",
-                      background: "#eee",
-                      borderRadius: "10px",
-                    }}
-                  ></div>
-                </Col>
-              ))}
-            </Row>
-          )}
+        {/* Loading Skeleton */}
+{loading && (
+  <Row className="g-4">
+    {[...Array(6)].map((_, i) => (
+      <Col md={4} key={i}>
+        <div className="card" aria-hidden="true">
+          <div
+            className="card-img-top"
+            style={{ height: "180px", background: "#eee" }}
+          ></div>
+          <div className="card-body">
+            <h5 className="card-title placeholder-glow">
+              <span className="placeholder col-6"></span>
+            </h5>
+            <p className="card-text placeholder-glow">
+              <span className="placeholder col-7"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-4"></span>
+              <span className="placeholder col-6"></span>
+              <span className="placeholder col-8"></span>
+            </p>
+            <a href="#" tabIndex="-1" className="btn btn-primary disabled placeholder col-6"></a>
+          </div>
+        </div>
+      </Col>
+    ))}
+  </Row>
+)}
+
           {/* Error */}
           {error && <p className="text-danger text-center">{error}</p>}
           {/* Restaurants Grid */}
