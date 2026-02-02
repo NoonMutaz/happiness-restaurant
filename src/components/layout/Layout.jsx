@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Routers from '../../routers/Routers'
 export default function Layout() {

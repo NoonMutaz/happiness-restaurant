@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import styled, { keyframes } from "styled-components";
-
+import { Link } from "react-router-dom";
 const fadeInUpStagger = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -97,7 +97,10 @@ export default function MoreRest() {
   );
 
   return (
-    <div className="bg-black h-full w-screen">
+<div
+   
+  className="text-decoration-none"
+>
       <ProductsSection className="bg-black h-full w-screen">
         <Container>
           <Title> قائمة المطاعم</Title>
@@ -152,7 +155,11 @@ export default function MoreRest() {
                 const info = rest.info;
                 const imageUrl = `https://res.cloudinary.com/swiggy/image/upload/${info.cloudinaryImageId}`;
                 return (
-                  <Col md={4} key={info.id}>
+                <Col md={4} key={info.id}>
+                  <Link key={info.id}
+  to={`/resturant-details/${info.id}/${info.name}`}
+  className="text-decoration-none"
+>  
                     <RestaurantCard delay={index * 0.1}>
                       {info.aggregatedDiscountInfoV3?.header && (
                         <Badge>{info.aggregatedDiscountInfoV3.header}</Badge>
@@ -166,7 +173,7 @@ export default function MoreRest() {
                         <p>💰 {info.costForTwo}</p>
                       </Card.Body>
                     </RestaurantCard>
-                  </Col>
+                 </Link> </Col>
                 );
               })}
             </Row>

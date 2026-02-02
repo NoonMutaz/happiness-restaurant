@@ -59,9 +59,9 @@ export default function HomePage( ) {
           
           </Container>
         </Section> 
-        <div id="products" >
+        <div id="products"  style={{background:'black' ,width:'100%'}}>
   
-       <Products    />  
+       <Products/>  
    
   
         </div>

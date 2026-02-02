@@ -208,7 +208,7 @@ const filteredItems = initialItems.filter(item =>
 );
 
   return (
-    <ProductsSection id="products">
+    <ProductsSection id="products" >
       <Container>
         <Title id='order-section'>قائمة منتجاتنا </Title>
         <Row className="mb-4">
