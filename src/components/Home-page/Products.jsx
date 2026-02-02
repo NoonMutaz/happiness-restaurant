@@ -205,10 +205,12 @@ const { addOrder } = useContext(OrderContext);  // State: كميات المنت�
   };
 const filteredItems = initialItems.filter(item =>
   item.name.toLowerCase().includes(search.toLowerCase())
+ 
 );
 
   return (
-    <ProductsSection id="products" >
+    <>
+ <ProductsSection id="products" >
       <Container>
         <Title id='order-section'>قائمة منتجاتنا </Title>
         <Row className="mb-4">
@@ -222,7 +224,14 @@ const filteredItems = initialItems.filter(item =>
     />
   </Col>
 </Row>
-        <Row className="g-4">
+   {filteredItems.length === 0 ? (   
+     <div className="text-center py-5">
+    <h4 className="text-muted">لا توجد نتائج</h4>
+    <p className="text-secondary">
+      جرّب البحث بكلمة مختلفة
+    </p>
+  </div>
+) : (<Row className="g-4">
           {filteredItems.map((item, index) => (
             <Col md={4} key={item.id}>
               <ProductCard delay={index * 0.2}>
@@ -270,9 +279,9 @@ const filteredItems = initialItems.filter(item =>
               </ProductCard>
             </Col>
           ))}
-        </Row>
+        </Row> )}
       </Container>
-    </ProductsSection>
+    </ProductsSection></>
   );
 }
 
