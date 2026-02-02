@@ -11,6 +11,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import Register from "../pages/Register/Register"  
 import EditProfile from "../pages/Editprofile/edit-profile"
 import Checkout from "../pages/Checkout/Checkout"
+import MoreRest from '../pages/MoreRest/MoreRest'
 export default function Routers() {
   return (
     <div>
@@ -24,6 +25,7 @@ export default function Routers() {
   <Route path="/register" element={<Register/>} ></Route>
   <Route path="/ProfilePage" element={<ProfilePage/>} ></Route>
   <Route path="/edit-profile" element={<EditProfile/>} ></Route>
+   <Route path="/more-resturant" element={<MoreRest/>} ></Route>
     <Route path="/Checkout" element={<Checkout/>} ></Route>
   <Route path="*" element={<NotFound/>} ></Route>
 </Routes>

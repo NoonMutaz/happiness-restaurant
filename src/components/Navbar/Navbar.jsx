@@ -35,7 +35,7 @@ function NavBar ( ) {
           <Nav.Link  as={HashLink} smooth to="/ContactUs">اتصل بنا</Nav.Link>
           <Nav.Link as={HashLink} smooth to="/#About">عن المطعم</Nav.Link>
           <Nav.Link href="#orders">الطلبات</Nav.Link>
-          <Nav.Link  as={HashLink} smooth to="/#products">العروض</Nav.Link>
+          <Nav.Link  as={HashLink} smooth to="/more-resturant">المزيد من المطاعم</Nav.Link>
           <Nav.Link  as={HashLink} smooth to="/ProfilePage">الصفحة الشخصية</Nav.Link>
           {/* <h2 style={{display:'flex',flexWrap:'wrap'}}>{".".repeat(90)}</h2> */}
             <Nav.Link href="#orders" style={{display:'none ',width:'20rem',}}>الطلبات</Nav.Link>

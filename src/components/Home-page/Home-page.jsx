@@ -46,7 +46,7 @@ const Section = styled.section`
 export default function HomePage( ) {
  
   return (
-    <div style={{backgroundColor:'black'}}>
+    <div style={{backgroundColor:'black',height:'100vh'}}>
       <GlobalStyle />
       <div dir="rtl">
         {/* Hero Section */}
