@@ -83,13 +83,10 @@ export default function RestaurantDetails() {
                   ⭐ {restaurant.avgRating}
                 </Badge>
                 <Badge bg="secondary">
-                  ⏱️ {restaurant.sla?.deliveryTime} min
+                    {restaurant.sla?.deliveryTime} min
                 </Badge>
               </div>
-
-              {/* <p className="fw-semibold">
-                💰 {restaurant.costForTwo}
-              </p> */}
+ 
 
               {restaurant.aggregatedDiscountInfoV3?.header && (
                 <div className="alert alert-warning mt-3">
@@ -97,9 +94,7 @@ export default function RestaurantDetails() {
                 </div>
               )}
 
-              {/* <Button variant="dark" size="lg" className="mt-3">
-                Order Now
-              </Button> */}
+      
             </Card.Body>
           </Col>
         </Row>

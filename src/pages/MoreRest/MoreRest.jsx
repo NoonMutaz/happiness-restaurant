@@ -7,11 +7,6 @@ const fadeInUpStagger = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-// const Section = styled.section`
-//   padding: 4rem 0;
-//   max-width: 1200px;
-//   margin: auto;
-// `;
 
 const Title = styled.h2`
   text-align: center;

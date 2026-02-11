@@ -11,7 +11,7 @@ export   const initialItems = [
         {
       id: 10,
       name: "شريحة طماطم  ",
-      desc: "شريحة طماطم  فاخرة",
+      desc: "شريحة طماطم  فاخرة مع توابل خاصة.",
       price: 5,
       image: tomato,
       badge: "الأكثر مبيعاً",
